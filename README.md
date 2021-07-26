@@ -1,5 +1,7 @@
 # center-slider
-Center scale effect slider(중앙 스케일 강조 효과 슬라이더)
+Center scale effect slider(중앙 스케일 강조 효과 슬라이더)   
+
+- demo: https://csslick.github.io/center-slider/
 
 ## 코드 예시
 ```
