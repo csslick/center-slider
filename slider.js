@@ -34,12 +34,14 @@ function changeSlide(num) {
 
   // slide 콘텐츠 높이 만큼 sliders의 높이값 갱신
   sliders.style.height = document.querySelector('.slider .current').offsetHeight + 'px';
+  console.log(sliders.style.height);
 }
 
 
-// 슬라이더 시작
-changeSlide(0)
-
+window.onload = function(){
+  // 슬라이더 시작
+  changeSlide(0)
+}
 
 // 이벤트
 btnNext.addEventListener('click', function(){
