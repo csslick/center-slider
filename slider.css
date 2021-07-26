@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 슬라이더 뷰 컨테이너 = 3 장까지 보여줌(이미지 크기 * 3) */
+.slider {
+  width: 100%;
+  height: auto;
+  /* outline: 2px solid green; */
+}
+
+/* 슬라이더 요소들를 담는 컨테이너 */
+.slider > .sliders {
+  position: relative;
+  width: 100%;
+}
+
+/* 슬라이더 요소 */
+.slider > .sliders > .slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 33.33%;
+  /* outline: 3px solid red; */
+  transition: 0.4s;
+}
+
+/* 현재 슬라이더 */
+.sliders .current {
+  transform: translateX(100%);
+  z-index: 9;
+  opacity: 1;
+}
+
+/* 이전 슬라이더 */
+.sliders .prev {
+  transform: translateX(0%) scale(0.8);
+  z-index: 0;
+}
+
+/* 다음 슬라이더 */
+.sliders .next {
+  transform: translateX(200%) scale(0.8);
+  z-index: 0;
+}
+
+/* 화면 밖의 대기중인 슬라이더 보이지 않음 */
+.sliders > :not(.current),
+.sliders > :not(.next),
+.sliders > :not(.prev) {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* 화면안에 대기중인 슬라이더 보임 */
+.sliders .next,
+.sliders .prev {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* 현재 슬라이더가 가장 위로 */
+.sliders .current {
+  opacity: 1;
+  z-index: 9;
+}
+
+
+.pager {
+  padding: 20px;
+  text-align: center;
+}
+
+.pager > button {
+  padding: 5px 10px;
+}
+
+

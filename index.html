@@ -5,16 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Center Rotate Gallery</title>
-  <link rel="stylesheet" href="style.css">
-  
+  <link rel="stylesheet" href="slider.css">
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #gallery {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      background: #ccc;
+      
+    }
+    .pager {
+      background: #fff;
+    }
+  </style>
 </head>
 <body>
   <section id="gallery">
     <div class="slider">
       <div class="sliders">
-        <img class="slide current" src="https://via.placeholder.com/300x200/f80?text=1" alt="1">
-        <img class="slide next" src="https://via.placeholder.com/300x200/8f9?text=2" alt="2">
-        <img class="slide prev" src="https://via.placeholder.com/300x200/09f?text=3" alt="3">
+        <img class="slide" src="https://via.placeholder.com/300x200/f80?text=1" alt="1">
+        <img class="slide" src="https://via.placeholder.com/300x200/8f9?text=2" alt="2">
+        <img class="slide" src="https://via.placeholder.com/300x200/09f?text=3" alt="3">
         <img class="slide" src="https://via.placeholder.com/300x200/380?text=4" alt="4">
       </div>
     </div>

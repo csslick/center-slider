@@ -7,8 +7,9 @@ const btnNext = document.querySelector('.btn-next');
 
 // 슬라이더 요소
 const slides = document.querySelectorAll('.sliders > .slide')
-const slideLength = slides.length;
-let imgNum = 0;
+const slideLength = slides.length;  // 이미지 장수
+let imgNum = 0; // 이미지 번호
+
 console.log(slides.length)
 
 function changeSlide(num) {
@@ -30,7 +31,11 @@ function changeSlide(num) {
   const nextImg = slides[(num + 1) % slideLength];
   nextImg.classList.remove('prev', 'next', 'current')
   nextImg.classList.add('next')
+
+  // slide 콘텐츠 높이 만큼 sliders의 높이값 갱신
+  sliders.style.height = document.querySelector('.slider .current').offsetHeight + 'px';
 }
+
 
 // 슬라이더 시작
 changeSlide(0)
@@ -55,4 +60,8 @@ btnPrev.addEventListener('click', function(){
   console.log('imgNum = ', imgNum);
 })
 
-
+// 윈도우 크기 변경시 슬라이드 높이 갱신
+window.addEventListener('resize', function(){
+  // slide 콘텐츠 높이 만큼 sliders의 높이값 갱신
+  sliders.style.height = document.querySelector('.slider .current').offsetHeight + 'px';
+})
