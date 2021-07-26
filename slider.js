@@ -1,0 +1,58 @@
+// slider 문서객체
+const slider = document.querySelector('.slider');
+const sliders = document.querySelector('.sliders');
+// pager 버튼
+const btnPrev = document.querySelector('.btn-prev');
+const btnNext = document.querySelector('.btn-next');
+
+// 슬라이더 요소
+const slides = document.querySelectorAll('.sliders > .slide')
+const slideLength = slides.length;
+let imgNum = 0;
+console.log(slides.length)
+
+function changeSlide(num) {
+  slides.forEach(function(slide) {
+    slide.classList.remove('prev', 'next', 'current') // 전체 클래스 초기화
+  })
+
+  // 현재 슬라이드
+  const curImg = slides[num];
+  curImg.classList.remove('prev', 'next', 'current') // 기존 클래스 초기화
+  curImg.classList.add('current') // 현재 슬라이드 설정
+
+  // 이전 슬라이드(현재 슬라이드 기준)
+  const preImg = (num == 0) ? slides[slideLength - 1] : slides[num - 1];
+  preImg.classList.remove('prev', 'next', 'current')
+  preImg.classList.add('prev')
+
+  // 다음 슬라이드(현재 슬라이드 기준)
+  const nextImg = slides[(num + 1) % slideLength];
+  nextImg.classList.remove('prev', 'next', 'current')
+  nextImg.classList.add('next')
+}
+
+// 슬라이더 시작
+changeSlide(0)
+
+
+// 이벤트
+btnNext.addEventListener('click', function(){
+  imgNum++;
+  if(imgNum >= slides.length) {
+    imgNum = 0;
+  }
+  changeSlide(imgNum);
+  console.log('imgNum = ', imgNum);
+})
+
+btnPrev.addEventListener('click', function(){
+  imgNum--;
+  if(imgNum < 0) {
+    imgNum = slideLength - 1;
+  }
+  changeSlide(imgNum);
+  console.log('imgNum = ', imgNum);
+})
+
+

@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#gallery {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+/* 슬라이더 뷰 컨테이너 = 3 장까지 보여줌(이미지 크기 * 3) */
+.slider {
+  width: 900px;
+  height: 200px;
+  outline: 1px solid;
+}
+
+/* 슬라이더 요소들를 담는 컨테이너 */
+.slider > .sliders {
+  position: relative;
+  display: flex;
+}
+
+/* 슬라이더 요소 */
+.slider > .sliders > .slide {
+  position: absolute;
+  transition: 0.4s;
+}
+
+/* 현재 슬라이더 */
+.sliders .current {
+  transform: translateX(300px);
+  z-index: 9;
+  opacity: 1;
+}
+
+/* 이전 슬라이더 */
+.sliders .prev {
+  transform: translateX(0px) scale(0.8);
+  z-index: 0;
+}
+
+/* 다음 슬라이더 */
+.sliders .next {
+  transform: translateX(600px) scale(0.8);
+  z-index: 0;
+}
+
+/* 화면 밖의 대기중인 슬라이더 보이지 않음 */
+.sliders > :not(.current),
+.sliders > :not(.next),
+.sliders > :not(.prev) {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* 화면안에 대기중인 슬라이더 보임 */
+.sliders .current,
+.sliders .next,
+.sliders .prev {
+  opacity: 1;
+  z-index: 2;
+}
+
